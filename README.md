@@ -33,6 +33,7 @@ By using three variable K-Map, we can get the simplified expression for next sta
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=S+R′Q(t)Q(t+1)=S+R′Q(t)
 
 **Procedure**
+
 1.Inputs and Outputs: The module sr_flipflop has inputs s, r, clk, and reset, and outputs q and q_bar.
 
 2.Clocked Process: The always @(posedge clk) block defines a clocked process sensitive to the positive edge of the clock signal.
@@ -52,11 +53,13 @@ For all other combinations of s and r, the output q remains unchanged.
 5.Output Complementation: The output q_bar is complemented (~q), i.e., the logical negation of q.
 
 **PROGRAM**
+
 Program for flipflops and verify its truth table in quartus using Verilog programming.
 
 Developed by: MONISH KUMAR .B
 
 RegisterNumber: 24005813
+```
 module sr_flipflop(q, q_bar, s, r, clk, reset);
   input s, r, clk, reset;
   output reg q;
@@ -77,12 +80,14 @@ module sr_flipflop(q, q_bar, s, r, clk, reset);
 
   assign q_bar = ~q;
 endmodule
-
+```
 **RTL LOGIC FOR FLIPFLOPS**
-![image](https://github.com/user-attachments/assets/caa246b7-7167-4d8b-b3a6-8e1e9dc344a4)
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
-![image](https://github.com/user-attachments/assets/58293564-c9a0-4940-a969-1d1534c4bbc3)
+![image](https://github.com/user-attachments/assets/733887c4-fa73-4642-8349-2d56e7954e89)
+
+**TIMING DIAGRAMS FOR FLIP FLOPS**
+
+![image](https://github.com/user-attachments/assets/13b65e5c-f738-469a-834d-119bc34f722f)
 
 **RESULTS**
 Thus the program to implement a SR flipflop using verilog and validating their functionality using their functional tables is successfully completed.
