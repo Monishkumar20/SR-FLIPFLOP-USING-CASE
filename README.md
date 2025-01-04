@@ -60,34 +60,30 @@ Developed by: MONISH KUMAR .B
 
 RegisterNumber: 24005813
 ```
-module sr_flipflop(q, q_bar, s, r, clk, reset);
-  input s, r, clk, reset;
-  output reg q;
-  output q_bar;
-
-  always @(posedge clk) begin
-    if (!reset) 
-      q <= 1'b0;
-    else begin
-      case ({s, r})
-        2'b01: q <= 1'b0;
-        2'b10: q <= 1'b1;
-        2'b11: q <= 1'bx;
-        default: q <= q;
-      endcase
-    end
-  end
-
-  assign q_bar = ~q;
+module sr_ff(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output reg qbar;
+initial 
+begin
+q=0;
+qbar=1;
+end
+always @(posedge clk)
+begin
+   q=s|(~r&q);
+   qbar=r|(~s&~q);
+end
 endmodule
 ```
+
 **RTL LOGIC FOR FLIPFLOPS**
 
 ![image](https://github.com/user-attachments/assets/733887c4-fa73-4642-8349-2d56e7954e89)
 
 **TIMING DIAGRAMS FOR FLIP FLOPS**
 
-![image](https://github.com/user-attachments/assets/13b65e5c-f738-469a-834d-119bc34f722f)
+![image](https://github.com/user-attachments/assets/2c21827e-0f6e-4d17-9ed8-60f3e8d4a4e2)
 
 **RESULTS**
 Thus the program to implement a SR flipflop using verilog and validating their functionality using their functional tables is successfully completed.
